@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nimbus — Monitoring Earth's climate, tracking deforestation, predicting disasters, and reducing space debris.">
+    <title>Nimbus</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Saira:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="prototype1.css">
+</head>
+
+<body>
+
+    <!-- ========== HERO BACKGROUND (Global — only for hero) ========== -->
+    <div class="parallax-bg">
+        <div class="parallax-bg-layer" id="bgLayer1" data-speed="0.15"></div>
+        <div class="parallax-bg-layer" id="bgLayer2" data-speed="0.35"></div>
+        <div class="parallax-bg-layer" id="bgLayer3" data-speed="0.55"></div>
+    </div>
+
+    <!-- ========== LEFT SIDE MENU TOGGLE ========== -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span class="material-icons">menu</span>
+    </button>
+
+    <!-- Side Drawer -->
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <span class="drawer-title">Menu</span>
+            <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#" class="drawer-link active">
+                <span class="material-icons">home</span>
+                <span>Home</span>
+            </a>
+            <a href="weather.html" class="drawer-link">
+                <span class="material-icons">cloud</span>
+                <span>Weather</span>
+            </a>
+            <a href="deforestation.html" class="drawer-link">
+                <span class="material-icons">forest</span>
+                <span>Deforestation</span>
+            </a>
+            <a href="disaster.html" class="drawer-link">
+                <span class="material-icons">warning</span>
+                <span>Disaster Prediction</span>
+            </a>
+            <a href="spacedebris.html" class="drawer-link">
+                <span class="material-icons">satellite_alt</span>
+                <span>Space Debris Data</span>
+            </a>
+        </nav>
+        <div class="drawer-divider"></div>
+        <button class="drawer-link add-profile-btn" id="addProfileBtn">
+            <span class="material-icons">person_add</span>
+            <span>Add Profile</span>
+        </button>
+    </div>
+
+    <!-- Drawer Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- ========== ADD PROFILE MODAL ========== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="profileModal">
+            <div class="modal-header">
+                <h3>Add Profile</h3>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your location to get personalized data.</p>
+                <div class="input-group">
+                    <span class="material-icons input-icon">location_on</span>
+                    <input type="text" id="locationInput" placeholder="Enter your city or region" autocomplete="off">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+                <button class="btn btn-primary" id="modalEnter">
+                    <span class="material-icons">arrow_forward</span>
+                    Enter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+
+        <!-- Hero / Title Section -->
+        <section class="hero">
+            <h1 class="site-title parallax-layer" data-speed="0.3">Nimbus</h1>
+            <div class="nav-links parallax-layer" data-speed="0.5">
+                <a href="weather.html" class="nav-pill">
+                    <span class="material-icons">cloud</span>
+                    Weather
+                </a>
+                <a href="deforestation.html" class="nav-pill">
+                    <span class="material-icons">forest</span>
+                    Deforestation
+                </a>
+                <a href="disaster.html" class="nav-pill">
+                    <span class="material-icons">warning</span>
+                    Disaster Prediction
+                </a>
+                <a href="spacedebris.html" class="nav-pill">
+                    <span class="material-icons">satellite_alt</span>
+                    Space Debris Data
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Weather Preview Section ===== -->
+        <section class="content-section parallax-section has-section-bg" data-speed="0.92" id="weatherPreview">
+            <div class="section-bg" data-bg-speed="0.4"
+                style="background-image: url('https://live-production.wcms.abc-cdn.net.au/1c1b19189df618469f87261ac15eace6?impolicy=wcms_crop_resize&cropH=1152&cropW=2048&xPos=0&yPos=383&width=862&height=485');">
+            </div>
+            <div class="section-bg-overlay"></div>
+            <div class="section-content">
+                <div class="section-label">
+                    <span class="material-icons">cloud</span>
+                    <h2>Weather</h2>
+                </div>
+                <div class="card-row">
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">thermostat</span>
+                            <span class="card-tag">Global Average</span>
+                        </div>
+                        <div class="card-value">+1.45°C</div>
+                        <p class="card-desc">Global temperature anomaly above pre-industrial baseline (1850–1900).</p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">air</span>
+                            <span class="card-tag">Atmosphere</span>
+                        </div>
+                        <div class="card-value">423 ppm</div>
+                        <p class="card-desc">Current atmospheric CO₂ concentration — highest in 800,000 years.</p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">waves</span>
+                            <span class="card-tag">Oceans</span>
+                        </div>
+                        <div class="card-value">+3.6 mm/yr</div>
+                        <p class="card-desc">Annual global mean sea level rise, accelerating each decade.</p>
+                    </div>
+                </div>
+                <a href="weather.html" class="see-more">
+                    See more
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Deforestation Preview Section ===== -->
+        <section class="content-section parallax-section has-section-bg" data-speed="0.88" id="deforestationPreview">
+            <div class="section-bg" data-bg-speed="0.35"
+                style="background-image: url('https://api.time.com/wp-content/uploads/2014/09/california-wildfire-1.jpg');">
+            </div>
+            <div class="section-bg-overlay"></div>
+            <div class="section-content">
+                <div class="section-label">
+                    <span class="material-icons">forest</span>
+                    <h2>Deforestation</h2>
+                </div>
+                <div class="card-row">
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">content_cut</span>
+                            <span class="card-tag">Annual Loss</span>
+                        </div>
+                        <div class="card-value">4.7M ha</div>
+                        <p class="card-desc">Primary forest lost every year — an area the size of Denmark.</p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">local_fire_department</span>
+                            <span class="card-tag">Wildfires</span>
+                        </div>
+                        <div class="card-value">30%</div>
+                        <p class="card-desc">Of all tree cover loss is caused by wildfires, rising each year.</p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">public</span>
+                            <span class="card-tag">Global Cover</span>
+                        </div>
+                        <div class="card-value">31%</div>
+                        <p class="card-desc">Of Earth's land is still forested — down from 32.5% in 1990.</p>
+                    </div>
+                </div>
+                <a href="deforestation.html" class="see-more">
+                    See more
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Disaster Prediction Preview Section ===== -->
+        <section class="content-section parallax-section has-section-bg" data-speed="0.85" id="disasterPreview">
+            <div class="section-bg" data-bg-speed="0.3"
+                style="background-image: url('https://www.preventionweb.net/sites/default/files/styles/landscape_16_9/public/2023-11/rsz_credit_gregg_jaden_calgary_flood_destroyed_high_way_bridge_in_2013-min.jpg?itok=NAIfSZgG');">
+            </div>
+            <div class="section-bg-overlay"></div>
+            <div class="section-content">
+                <div class="section-label">
+                    <span class="material-icons">warning</span>
+                    <h2>Disaster Prediction</h2>
+                </div>
+                <div class="card-row">
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">earthquake</span>
+                            <span class="card-tag">Seismic</span>
+                        </div>
+                        <div class="card-value">147</div>
+                        <p class="card-desc">Significant earthquakes detected globally in the past 30 days.</p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">flood</span>
+                            <span class="card-tag">Flooding</span>
+                        </div>
+                        <div class="card-value">89</div>
+                        <p class="card-desc">Active flood warnings across 23 countries worldwide.</p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">cyclone</span>
+                            <span class="card-tag">Storms</span>
+                        </div>
+                        <div class="card-value">12</div>
+                        <p class="card-desc">Active tropical storms and cyclones currently being tracked.</p>
+                    </div>
+                </div>
+                <a href="disaster.html" class="see-more">
+                    See more
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Space Debris Preview Section ===== -->
+        <section class="content-section parallax-section has-section-bg" data-speed="0.82" id="debrisPreview">
+            <div class="section-bg" data-bg-speed="0.25"
+                style="background-image: url('https://www.nasa.gov/wp-content/uploads/2022/05/eo_pe_14797031062_4cbe0f218f_o_sm.png');">
+            </div>
+            <div class="section-bg-overlay"></div>
+            <div class="section-content">
+                <div class="section-label">
+                    <span class="material-icons">satellite_alt</span>
+                    <h2>Space Debris Data</h2>
+                </div>
+                <div class="card-row">
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">satellite_alt</span>
+                            <span class="card-tag">Tracked Objects</span>
+                        </div>
+                        <div class="card-value">36,500</div>
+                        <p class="card-desc">Objects larger than 10 cm currently tracked in Earth's orbit.</p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">speed</span>
+                            <span class="card-tag">Velocity</span>
+                        </div>
+                        <div class="card-value">28,000 km/h</div>
+                        <p class="card-desc">Average orbital speed of debris — fast enough to destroy satellites.
+                        </p>
+                    </div>
+                    <div class="surface-card">
+                        <div class="card-top">
+                            <span class="material-icons card-icon">report_problem</span>
+                            <span class="card-tag">Risk Level</span>
+                        </div>
+                        <div class="card-value">73 / 100</div>
+                        <p class="card-desc">Collision risk index — elevated concern for Kessler Syndrome.</p>
+                    </div>
+                </div>
+                <a href="spacedebris.html" class="see-more">
+                    See more
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Footer / End Credits ===== -->
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3 class="footer-title">Nimbus</h3>
+                    <p>Monitoring our planet from ground to orbit. Powered by satellite intelligence.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <a href="weather.html">Weather</a>
+                    <a href="deforestation.html">Deforestation</a>
+                    <a href="disaster.html">Disaster Prediction</a>
+                    <a href="spacedebris.html">Space Debris</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Sources</h4>
+                    <a href="#">NASA Earth Data</a>
+                    <a href="#">ESA Copernicus</a>
+                    <a href="#">NOAA Climate</a>
+                    <a href="#">Global Forest Watch</a>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <a href="#">About Nimbus</a>
+                    <a href="#">Methodology</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Nimbus. All rights reserved.</p>
+                <p class="footer-sub">Data sourced from NASA, ESA, NOAA, and Global Forest Watch.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="prototype1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nimbus — Space Debris: Tracking the orbital crisis threatening satellites and future missions.">
+    <title>Space Debris — Nimbus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Saira:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="prototype1.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-bg">
+        <div class="parallax-bg-layer" id="bgLayer1" data-speed="0.15"
+            style="background-image: url('https://www.nasa.gov/wp-content/uploads/2022/05/eo_pe_14797031062_4cbe0f218f_o_sm.png'); background-size: cover; background-position: center;">
+        </div>
+        <div class="parallax-bg-layer" id="bgLayer2" data-speed="0.35"></div>
+        <div class="parallax-bg-layer" id="bgLayer3" data-speed="0.55"></div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="prototype1.html" class="back-btn" aria-label="Back to home">
+        <span class="material-icons">arrow_back</span>
+    </a>
+
+    <!-- Main Content -->
+    <main class="main-content subpage">
+
+        <!-- Page Header -->
+        <section class="subpage-hero">
+            <span class="material-icons subpage-icon">satellite_alt</span>
+            <h1 class="subpage-title">The Orbital Crisis</h1>
+            <p class="subpage-subtitle">Millions of debris fragments orbit Earth at 28,000 km/h, threatening satellites
+                and future space missions.</p>
+        </section>
+
+        <!-- Tracked Objects -->
+        <section class="content-section parallax-section" data-speed="0.92">
+            <div class="section-label">
+                <span class="material-icons">track_changes</span>
+                <h2>Tracked Objects in Orbit</h2>
+            </div>
+            <div class="detail-card surface-card">
+                <div class="big-number">36,500</div>
+                <p class="detail-desc">Objects larger than 10 cm currently tracked in Earth's orbit by ground-based
+                    radar and space surveillance networks.</p>
+
+                <div class="breakdown-grid">
+                    <div class="breakdown-item">
+                        <span class="bd-dot" style="background: var(--accent-primary)"></span>
+                        <div class="bd-info">
+                            <span class="bd-label">Active Satellites</span>
+                            <span class="bd-value">7,200</span>
+                        </div>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="bd-dot" style="background: var(--accent-amber)"></span>
+                        <div class="bd-info">
+                            <span class="bd-label">Defunct Satellites</span>
+                            <span class="bd-value">3,500</span>
+                        </div>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="bd-dot" style="background: var(--accent-red)"></span>
+                        <div class="bd-info">
+                            <span class="bd-label">Rocket Bodies</span>
+                            <span class="bd-value">2,300</span>
+                        </div>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="bd-dot" style="background: var(--accent-green)"></span>
+                        <div class="bd-info">
+                            <span class="bd-label">Fragmentation Debris</span>
+                            <span class="bd-value">23,500+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speed & Risk -->
+        <section class="content-section parallax-section" data-speed="0.88">
+            <div class="card-row card-row--2">
+                <!-- Speed -->
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">speed</span>
+                        <span class="card-tag">Velocity</span>
+                    </div>
+                    <div class="card-value">28,000 km/h</div>
+                    <p class="card-desc">Average orbital speed of debris — fast enough to destroy operational satellites
+                        on impact. Even a 1 cm fragment carries the energy of a hand grenade.</p>
+                </div>
+
+                <!-- Collision Risk -->
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">report_problem</span>
+                        <span class="card-tag">Risk Level</span>
+                    </div>
+                    <div class="card-value">73 / 100</div>
+                    <p class="card-desc">Collision risk index — elevated concern for Kessler Syndrome, a cascading chain
+                        of collisions that could make orbits unusable.</p>
+                    <span class="status-badge status-warning">⚠ Elevated Risk — Kessler Syndrome Concern</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mitigation Strategies -->
+        <section class="content-section parallax-section" data-speed="0.85">
+            <div class="section-label">
+                <span class="material-icons">build</span>
+                <h2>Mitigation Strategies</h2>
+            </div>
+            <div class="card-row card-row--4">
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">🎯</span>
+                    <h3>Active Debris Removal</h3>
+                    <p class="card-desc">Robotic arms, nets, and harpoons to capture and deorbit large debris objects.
+                    </p>
+                    <span class="mit-status-badge testing">In Testing</span>
+                </div>
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">🔄</span>
+                    <h3>Deorbiting Standards</h3>
+                    <p class="card-desc">25-year rule: satellites must deorbit within 25 years after mission end.</p>
+                    <span class="mit-status-badge active">Active Policy</span>
+                </div>
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">📡</span>
+                    <h3>Space Situational Awareness</h3>
+                    <p class="card-desc">Ground and space-based radar networks tracking objects as small as 1 cm.</p>
+                    <span class="mit-status-badge active">Operational</span>
+                </div>
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">🧲</span>
+                    <h3>Laser Nudging</h3>
+                    <p class="card-desc">Ground-based lasers gently altering debris orbits to prevent collisions.</p>
+                    <span class="mit-status-badge research">Research Phase</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-bottom">
+                <p>© 2026 Nimbus. All rights reserved.</p>
+                <p class="footer-sub">Data sourced from NASA, ESA Space Debris Office.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="prototype1.js"></script>
+</body>
+
+</html>

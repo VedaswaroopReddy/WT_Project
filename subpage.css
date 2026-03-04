@@ -1,0 +1,1116 @@
+/* ============================================
+   NIMBUS — Sub-Page & Dashboard Styles
+   Extends prototype1.css for detail views
+   ============================================ */
+
+/* ============================================
+   VIEW SYSTEM — Show/Hide Sections
+   ============================================ */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+    animation: viewFadeIn 0.45s var(--ease-decel) both;
+}
+
+@keyframes viewFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   BACK LINK
+   ============================================ */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: var(--glass-radius);
+    background: var(--surface-1);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    transition: all var(--duration-medium) var(--ease-standard);
+    cursor: pointer;
+}
+
+.back-link:hover {
+    background: var(--surface-2);
+    color: var(--text-high);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateX(-4px);
+}
+
+.back-link .material-icons {
+    font-size: 16px !important;
+    color: var(--accent-primary) !important;
+}
+
+/* ============================================
+   DASHBOARD HEADER
+   ============================================ */
+.dash-header {
+    padding: 80px 0 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dash-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dash-title-icon {
+    font-size: 32px !important;
+    color: var(--accent-primary) !important;
+}
+
+.dash-title {
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--text-high);
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+/* ============================================
+   DASHBOARD GRID
+   ============================================ */
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 16px 0 40px;
+}
+
+.dash-card {
+    padding: 20px !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    /* Override scroll-reveal hidden state from prototype1.css */
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.dash-card--wide {
+    grid-column: span 2;
+}
+
+.dash-card--tall {
+    grid-row: span 2;
+}
+
+.dash-card--full {
+    grid-column: 1 / -1;
+}
+
+/* Override main content for dashboard views to have proper width */
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============================================
+   DASHBOARD CARD INTERNALS
+   ============================================ */
+.dash-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.dash-card-top .material-icons {
+    font-size: 20px !important;
+    color: var(--text-medium) !important;
+}
+
+.dash-card-label {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--text-medium);
+    flex: 1;
+}
+
+.dash-big-val {
+    font-family: var(--font-title);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--text-high);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.dash-unit {
+    font-size: 0.45em;
+    color: var(--text-medium);
+    margin-left: 4px;
+}
+
+.dash-card-sub {
+    font-size: 0.75rem;
+    color: var(--text-disabled);
+    line-height: 1.5;
+}
+
+/* ============================================
+   DASHBOARD METRICS
+   ============================================ */
+.dash-metrics {
+    display: flex;
+    gap: 20px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--divider);
+}
+
+.dash-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.dm-num {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    color: var(--accent-primary);
+}
+
+.dm-lbl {
+    font-size: 0.68rem;
+    color: var(--text-disabled);
+}
+
+/* Stat row (split data) */
+.dash-stat-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 8px;
+}
+
+.dash-stat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.dash-stat-num {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.dash-stat-lbl {
+    font-size: 0.75rem;
+    color: var(--text-medium);
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.status-warning {
+    background: rgba(255, 213, 79, 0.12);
+    color: var(--accent-amber);
+}
+
+.status-danger {
+    background: rgba(239, 154, 154, 0.12);
+    color: var(--accent-red);
+}
+
+.status-active {
+    background: rgba(129, 199, 132, 0.12);
+    color: var(--accent-green);
+}
+
+/* ============================================
+   DONUT CHART (Compact)
+   ============================================ */
+.donut-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 8px auto;
+}
+
+.donut-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.donut-num {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--accent-primary);
+}
+
+.donut-sub {
+    font-size: 0.65rem;
+    color: var(--text-disabled);
+}
+
+/* ============================================
+   GAUGE (Semi-circle)
+   ============================================ */
+.gauge-mini {
+    position: relative;
+    width: 120px;
+    height: 70px;
+    margin: 4px auto 0;
+}
+
+.gauge-mini svg {
+    width: 100%;
+    height: 100%;
+}
+
+.gauge-center {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.gauge-num {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: var(--accent-amber);
+}
+
+.gauge-sub {
+    font-size: 0.7rem;
+    color: var(--text-disabled);
+}
+
+/* ============================================
+   BAR CHART
+   ============================================ */
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 130px;
+    padding-top: 12px;
+    margin-top: 4px;
+}
+
+.chart-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.chart-fill {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(180deg, var(--accent-primary), rgba(130, 177, 255, 0.25));
+    transition: height 0.8s var(--ease-decel);
+}
+
+.chart-col.highlight .chart-fill {
+    background: linear-gradient(180deg, var(--accent-amber), rgba(255, 213, 79, 0.35));
+}
+
+.chart-label {
+    font-size: 0.6rem;
+    color: var(--text-disabled);
+}
+
+.chart-val {
+    font-size: 0.58rem;
+    color: var(--text-medium);
+    font-weight: 500;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+.progress-track {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 0.65rem;
+    color: var(--text-disabled);
+}
+
+.progress-rail {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-amber), var(--accent-red));
+    border-radius: 3px;
+    transition: width 1s var(--ease-decel);
+}
+
+/* ============================================
+   TREND BADGES
+   ============================================ */
+.trend-badge {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.trend-down {
+    background: rgba(129, 199, 132, 0.1);
+    color: var(--accent-green);
+}
+
+.trend-up {
+    background: rgba(239, 154, 154, 0.1);
+    color: var(--accent-red);
+}
+
+/* ============================================
+   HOTSPOT COMPACT (Horizontal bars)
+   ============================================ */
+.hotspot-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hs-row {
+    display: grid;
+    grid-template-columns: 10px 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.hotspot-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.hotspot-dot.critical {
+    background: var(--accent-red);
+}
+
+.hotspot-dot.warning {
+    background: var(--accent-amber);
+}
+
+.hs-row strong {
+    font-size: 0.8rem;
+    color: var(--text-high);
+}
+
+.hs-val {
+    font-size: 0.72rem;
+    color: var(--accent-primary);
+    font-weight: 500;
+    text-align: right;
+}
+
+.hs-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.hs-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* ============================================
+   ALERT LIST (Compact for dashboard)
+   ============================================ */
+.live-dot {
+    font-size: 0.65rem;
+    color: var(--accent-red);
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: pulse-dot 1.5s ease infinite;
+    margin-left: auto;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.alert-list-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.alert-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--divider);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.alert-mini.alert-high {
+    border-left: 3px solid var(--accent-red);
+}
+
+.alert-mini.alert-medium {
+    border-left: 3px solid var(--accent-amber);
+}
+
+.alert-mini.alert-low {
+    border-left: 3px solid var(--accent-green);
+}
+
+.alert-mini>span:first-child {
+    font-size: 1.1rem;
+}
+
+.alert-mi {
+    font-size: 20px !important;
+    color: var(--text-medium) !important;
+}
+
+.alert-mini.alert-high .alert-mi {
+    color: var(--accent-red) !important;
+}
+
+.alert-mini.alert-medium .alert-mi {
+    color: var(--accent-amber) !important;
+}
+
+.alert-mini.alert-low .alert-mi {
+    color: var(--accent-green) !important;
+}
+
+.alert-mini>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.alert-mini strong {
+    font-size: 0.78rem;
+    color: var(--text-high);
+}
+
+.alert-mini div span {
+    font-size: 0.68rem;
+    color: var(--text-medium);
+}
+
+.alert-badge {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.alert-badge.high {
+    background: rgba(239, 154, 154, 0.15);
+    color: var(--accent-red);
+}
+
+.alert-badge.medium {
+    background: rgba(255, 213, 79, 0.15);
+    color: var(--accent-amber);
+}
+
+.alert-badge.low {
+    background: rgba(129, 199, 132, 0.15);
+    color: var(--accent-green);
+}
+
+/* ============================================
+   RISK BAR
+   ============================================ */
+.risk-bar-sub {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid var(--divider);
+}
+
+.risk-label-sub {
+    font-size: 0.65rem;
+    color: var(--text-disabled);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.risk-track {
+    height: 5px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.risk-fill-sub {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-amber));
+    border-radius: 3px;
+}
+
+.risk-fill-sub.risk-high {
+    background: linear-gradient(90deg, var(--accent-amber), var(--accent-red));
+}
+
+.risk-text-sub {
+    font-size: 0.65rem;
+    color: var(--text-medium);
+    margin-top: 3px;
+    display: block;
+}
+
+/* ============================================
+   CAPABILITY GRID (compact inline)
+   ============================================ */
+.cap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.cap-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding: 12px 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.cap-item>span:first-child {
+    font-size: 1.4rem;
+}
+
+.cap-mi {
+    font-size: 24px !important;
+    color: var(--accent-primary) !important;
+}
+
+.cap-item strong {
+    font-size: 0.72rem;
+    color: var(--text-high);
+}
+
+.cap-sub {
+    font-size: 0.62rem;
+    color: var(--text-disabled);
+}
+
+/* ============================================
+   SPACE DEBRIS — breakdown row
+   ============================================ */
+.debris-dash-row {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.debris-big {
+    flex-shrink: 0;
+}
+
+.debris-breakdown-mini {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bd-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--text-medium);
+}
+
+.bd-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.bd-row strong {
+    margin-left: auto;
+    color: var(--text-high);
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   MITIGATION STATUS BADGES
+   ============================================ */
+.mit-status-badge {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.mit-status-badge.active {
+    background: rgba(129, 199, 132, 0.12);
+    color: var(--accent-green);
+}
+
+.mit-status-badge.testing {
+    background: rgba(255, 213, 79, 0.12);
+    color: var(--accent-amber);
+}
+
+.mit-status-badge.research {
+    background: rgba(130, 177, 255, 0.12);
+    color: var(--accent-primary);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+    .dash-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dash-card--wide {
+        grid-column: span 2;
+    }
+
+    .cap-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dash-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-card--wide,
+    .dash-card--tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .dash-header {
+        padding-top: 60px;
+    }
+
+    .dash-big-val {
+        font-size: 1.8rem;
+    }
+
+    .cap-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .debris-dash-row {
+        flex-direction: column;
+    }
+
+    .chart-bars {
+        height: 100px;
+    }
+
+    .hs-row {
+        grid-template-columns: 10px 1fr auto;
+    }
+
+    .hs-bar {
+        display: none;
+    }
+}
+
+
+/* ============================================
+   COMPACT HOME — Hero, Stats, Grid
+   ============================================ */
+.home-hero {
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 80px 0 20px;
+}
+
+.home-hero .site-title {
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    max-width: 600px;
+    line-height: 1.15;
+}
+
+.home-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+/* Stats bar */
+.home-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 16px 32px;
+    border-radius: var(--glass-radius);
+    background: var(--surface-1);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+}
+
+.home-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.home-stat-num {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--accent-primary);
+}
+
+.home-stat-lbl {
+    font-size: 0.68rem;
+    color: var(--text-disabled);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.home-stat-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--divider);
+}
+
+/* 2×2 Preview Grid */
+.home-grid-section {
+    padding: 0 0 24px;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.home-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none !important;
+    cursor: pointer;
+    /* Override scroll-reveal hidden state */
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.home-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.home-card-icon {
+    font-size: 22px !important;
+    color: var(--accent-primary) !important;
+}
+
+.home-card-title {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--text-high);
+    flex: 1;
+}
+
+.home-card-arrow {
+    font-size: 18px !important;
+    color: var(--text-disabled) !important;
+    transition: transform 0.2s var(--ease-standard), color 0.2s;
+}
+
+.home-card:hover .home-card-arrow {
+    transform: translateX(4px);
+    color: var(--accent-primary) !important;
+}
+
+.home-card-stat {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: var(--text-high);
+    line-height: 1;
+}
+
+.home-card-desc {
+    font-size: 0.78rem;
+    color: var(--text-medium);
+    line-height: 1.5;
+}
+
+/* Responsive home */
+@media (max-width: 600px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-stats {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+
+    .home-stat-divider {
+        width: 40px;
+        height: 1px;
+    }
+
+    .home-hero {
+        min-height: 45vh;
+        padding-top: 60px;
+    }
+}
+
+
+/* ============================================
+   INDIA SVG MAP — Interactive States
+   ============================================ */
+.dash-card--full {
+    grid-column: 1 / -1;
+}
+
+.india-map-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin: 12px auto 0;
+}
+
+.india-map-svg {
+    width: 100%;
+    height: auto;
+}
+
+.india-map-svg .state {
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 1.5;
+    cursor: pointer;
+    transition: fill 0.25s, stroke 0.25s, filter 0.25s, opacity 0.25s;
+}
+
+/* North — Gold/Amber */
+.state[data-name="Jammu & Kashmir"],
+.state[data-name="Himachal Pradesh"],
+.state[data-name="Punjab"],
+.state[data-name="Uttarakhand"],
+.state[data-name="Haryana & Delhi"] {
+    fill: rgba(255, 193, 7, 0.55);
+}
+
+/* Central — Coral/Red */
+.state[data-name="Uttar Pradesh"],
+.state[data-name="Madhya Pradesh"],
+.state[data-name="Chhattisgarh"] {
+    fill: rgba(244, 67, 54, 0.5);
+}
+
+/* East — Purple */
+.state[data-name="Bihar"],
+.state[data-name="Jharkhand"],
+.state[data-name="Odisha"] {
+    fill: rgba(156, 39, 176, 0.5);
+}
+
+/* Northeast — Blue */
+.state[data-name="Assam & NE States"],
+.state[data-name="West Bengal"] {
+    fill: rgba(33, 100, 243, 0.55);
+}
+
+/* West — Lavender */
+.state[data-name="Rajasthan"],
+.state[data-name="Gujarat"],
+.state[data-name="Maharashtra"],
+.state[data-name="Goa"] {
+    fill: rgba(186, 152, 255, 0.45);
+}
+
+/* South — Green */
+.state[data-name="Karnataka"],
+.state[data-name="Kerala"],
+.state[data-name="Tamil Nadu"],
+.state[data-name="Andhra Pradesh"],
+.state[data-name="Telangana"] {
+    fill: rgba(76, 175, 80, 0.5);
+}
+
+.india-map-svg .state:hover {
+    opacity: 0.95;
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-width: 2.2;
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.3)) brightness(1.5);
+}
+
+/* Tooltip */
+.map-tooltip {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 50;
+    background: rgba(15, 20, 35, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 12px 16px;
+    min-width: 200px;
+    max-width: 260px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.map-tooltip.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tt-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    color: var(--accent-primary);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tt-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tt-rows>div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--text-medium);
+}
+
+.tt-icon {
+    font-size: 14px !important;
+    color: var(--accent-primary) !important;
+    opacity: 0.7;
+}
+
+.tt-label {
+    color: var(--text-disabled);
+    min-width: 55px;
+}
+
+.tt-val {
+    color: var(--text-high);
+    font-weight: 500;
+}
+
+/* Live badge */
+.status-badge.status-active {
+    background: rgba(76, 175, 80, 0.15);
+    color: #69f0ae;
+}
+
+@media (max-width: 600px) {
+    .india-map-wrap {
+        max-width: 100%;
+    }
+
+    .map-tooltip {
+        min-width: 170px;
+        max-width: 220px;
+        padding: 10px 12px;
+    }
+}

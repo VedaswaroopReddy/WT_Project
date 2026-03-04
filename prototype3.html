@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nimbus — Monitoring Earth's climate, tracking deforestation, predicting disasters, and reducing space debris.">
+    <title>Nimbus — Earth & Orbital Monitoring</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="prototype3.css">
+</head>
+
+<body>
+
+    <!-- ========== AMBIENT BG ========== -->
+    <div class="ambient-bg">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+        <div class="grain-overlay"></div>
+    </div>
+
+    <!-- ========== MENU TOGGLE ========== -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span class="material-icons">menu</span>
+    </button>
+
+    <!-- Side Drawer -->
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <span class="drawer-title">NIMBUS</span>
+            <button class="drawer-close" id="drawerClose" aria-label="Close menu"><span
+                    class="material-icons">close</span></button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#" class="drawer-link active" data-view="home"><span
+                    class="material-icons">home</span><span>Home</span></a>
+            <a href="#" class="drawer-link" data-view="weather"><span
+                    class="material-icons">cloud</span><span>Climate</span></a>
+            <a href="#" class="drawer-link" data-view="deforestation"><span
+                    class="material-icons">forest</span><span>Deforestation</span></a>
+            <a href="#" class="drawer-link" data-view="disaster"><span
+                    class="material-icons">warning</span><span>Disaster Prediction</span></a>
+            <a href="#" class="drawer-link" data-view="spacedebris"><span
+                    class="material-icons">satellite_alt</span><span>Space Debris</span></a>
+        </nav>
+        <div class="drawer-divider"></div>
+        <button class="drawer-link add-profile-btn" id="addProfileBtn"><span
+                class="material-icons">person_add</span><span>Add Profile</span></button>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- ========== ADD PROFILE MODAL ========== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="profileModal">
+            <div class="modal-header">
+                <h3>Add Profile</h3>
+                <button class="modal-close" id="modalClose" aria-label="Close modal"><span
+                        class="material-icons">close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your location to get personalized data.</p>
+                <div class="input-group">
+                    <span class="material-icons input-icon">location_on</span>
+                    <input type="text" id="locationInput" placeholder="Enter your city or region" autocomplete="off">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+                <button class="btn btn-primary" id="modalEnter"><span class="material-icons">arrow_forward</span>
+                    Enter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+
+        <!-- ==================== VIEW: HOME ==================== -->
+        <div class="view active" id="view-home">
+            <section class="home-hero">
+                <div class="hero-badge"><span class="material-icons">satellite_alt</span> Real-time Monitoring</div>
+                <h1 class="site-title">Nimbus</h1>
+                <p class="home-subtitle">Global environmental & orbital monitoring powered by satellite intelligence.
+                </p>
+                <div class="home-stats">
+                    <div class="home-stat"><span class="home-stat-num" id="statSatellites">7,560</span><span
+                            class="home-stat-lbl">Active Satellites</span></div>
+                    <div class="home-stat-divider"></div>
+                    <div class="home-stat"><span class="home-stat-num" id="statDebris">36,860+</span><span
+                            class="home-stat-lbl">Debris Tracked</span></div>
+                    <div class="home-stat-divider"></div>
+                    <div class="home-stat"><span class="home-stat-num" id="statCountries">195</span><span
+                            class="home-stat-lbl">Countries Monitored</span></div>
+                </div>
+            </section>
+
+            <section class="home-grid-section">
+                <div class="home-grid">
+                    <a href="#" class="home-card glass-card" data-view="weather">
+                        <div class="home-card-icon-wrap climate-glow"><span class="material-icons">cloud</span></div>
+                        <div class="home-card-body">
+                            <h3 class="home-card-title">Climate</h3>
+                            <div class="home-card-stat">+1.48°C</div>
+                            <p class="home-card-desc">Global temperature anomaly. CO₂ at 424 ppm. Sea levels +4.5 mm/yr.
+                            </p>
+                        </div>
+                        <span class="material-icons home-card-arrow">arrow_forward</span>
+                    </a>
+                    <a href="#" class="home-card glass-card" data-view="deforestation">
+                        <div class="home-card-icon-wrap forest-glow"><span class="material-icons">forest</span></div>
+                        <div class="home-card-body">
+                            <h3 class="home-card-title">Deforestation</h3>
+                            <div class="home-card-stat">3.7M ha/yr</div>
+                            <p class="home-card-desc">Primary forest lost annually. 31% of Earth's land forested.</p>
+                        </div>
+                        <span class="material-icons home-card-arrow">arrow_forward</span>
+                    </a>
+                    <a href="#" class="home-card glass-card" data-view="disaster">
+                        <div class="home-card-icon-wrap disaster-glow"><span class="material-icons">warning</span></div>
+                        <div class="home-card-body">
+                            <h3 class="home-card-title">Disasters</h3>
+                            <div class="home-card-stat">4 Live Alerts</div>
+                            <p class="home-card-desc">147 earthquakes, 89 floods, 12 storms tracked in the last 30 days.
+                            </p>
+                        </div>
+                        <span class="material-icons home-card-arrow">arrow_forward</span>
+                    </a>
+                    <a href="#" class="home-card glass-card" data-view="spacedebris">
+                        <div class="home-card-icon-wrap debris-glow"><span class="material-icons">satellite_alt</span>
+                        </div>
+                        <div class="home-card-body">
+                            <h3 class="home-card-title">Space Debris</h3>
+                            <div class="home-card-stat">36,860 Objects</div>
+                            <p class="home-card-desc">Tracked at 28,000 km/h. Collision risk 73/100 — Kessler concern
+                                elevated.</p>
+                        </div>
+                        <span class="material-icons home-card-arrow">arrow_forward</span>
+                    </a>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>© 2026 Nimbus. All rights reserved.</p>
+                <p class="footer-sub">Data sourced from NASA, ESA, NOAA, Global Forest Watch, USGS, FAO, UCS, IMD.</p>
+            </footer>
+        </div>
+
+
+        <!-- ==================== VIEW: CLIMATE ==================== -->
+        <div class="view" id="view-weather">
+            <div class="dash-header">
+                <a href="#" class="back-link" data-view="home"><span class="material-icons">arrow_back</span> Home</a>
+                <div class="dash-title-row"><span class="material-icons dash-title-icon">cloud</span>
+                    <h1 class="dash-title">Climate Dashboard</h1>
+                </div>
+            </div>
+            <div class="dash-grid">
+                <!-- Temperature -->
+                <div class="dash-card dash-card--wide glass-card">
+                    <div class="dash-card-top"><span class="material-icons">thermostat</span><span
+                            class="dash-card-label">Global Temperature Anomaly</span><span
+                            class="status-badge status-warning">⚠ Above Baseline</span></div>
+                    <div class="dash-big-val">+1.48°C</div>
+                    <p class="dash-card-sub">Above pre-industrial average, 1850–1900 (NASA GISS)</p>
+                    <div class="chart-bars">
+                        <div class="chart-col">
+                            <div class="chart-fill" style="height:30%"></div><span class="chart-label">2018</span><span
+                                class="chart-val">+0.91</span>
+                        </div>
+                        <div class="chart-col">
+                            <div class="chart-fill" style="height:40%"></div><span class="chart-label">2019</span><span
+                                class="chart-val">+1.00</span>
+                        </div>
+                        <div class="chart-col">
+                            <div class="chart-fill" style="height:45%"></div><span class="chart-label">2020</span><span
+                                class="chart-val">+1.05</span>
+                        </div>
+                        <div class="chart-col">
+                            <div class="chart-fill" style="height:50%"></div><span class="chart-label">2021</span><span
+                                class="chart-val">+1.11</span>
+                        </div>
+                        <div class="chart-col">
+                            <div class="chart-fill" style="height:60%"></div><span class="chart-label">2022</span><span
+                                class="chart-val">+1.20</span>
+                        </div>
+                        <div class="chart-col">
+                            <div class="chart-fill" style="height:78%"></div><span class="chart-label">2023</span><span
+                                class="chart-val">+1.35</span>
+                        </div>
+                        <div class="chart-col highlight">
+                            <div class="chart-fill" style="height:90%"></div><span class="chart-label">2024</span><span
+                                class="chart-val">+1.48</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Arctic Ice -->
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">ac_unit</span><span
+                            class="dash-card-label">Arctic Sea Ice</span><span class="status-badge status-danger">🔴
+                            Declining</span></div>
+                    <div class="dash-big-val">-13%<span class="dash-unit">/decade</span></div>
+                    <div class="donut-wrap"><svg class="donut-chart" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.06)" stroke-width="12"
+                                fill="none" />
+                            <circle cx="60" cy="60" r="50" stroke="var(--accent-primary)" stroke-width="12" fill="none"
+                                stroke-dasharray="314" stroke-dashoffset="119" stroke-linecap="round"
+                                transform="rotate(-90 60 60)" />
+                        </svg>
+                        <div class="donut-center"><span class="donut-num">62%</span><span class="donut-sub">Remaining
+                                (NSIDC)</span></div>
+                    </div>
+                </div>
+                <!-- CO2 -->
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">air</span><span class="dash-card-label">CO₂
+                            Concentration</span><span class="status-badge status-danger">🔴 Critical</span></div>
+                    <div class="dash-big-val">424<span class="dash-unit">ppm</span></div>
+                    <p class="dash-card-sub">Highest in 800,000 years (NOAA Mauna Loa)</p>
+                    <div class="progress-track">
+                        <div class="progress-labels"><span>280 ppm</span><span>450 ppm</span></div>
+                        <div class="progress-rail">
+                            <div class="progress-fill" style="width:85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sea Level -->
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">waves</span><span
+                            class="dash-card-label">Sea Level Rise</span><span class="status-badge status-warning">⚠
+                            Rising</span></div>
+                    <div class="dash-big-val">+4.5<span class="dash-unit">mm/yr</span></div>
+                    <div class="dash-metrics">
+                        <div class="dash-metric"><span class="dm-num">+110mm</span><span class="dm-lbl">Since
+                                1993</span></div>
+                        <div class="dash-metric"><span class="dm-num">+230mm</span><span class="dm-lbl">Since
+                                1880</span></div>
+                    </div>
+                </div>
+                <!-- INDIA CLIMATE MAP -->
+                <div class="dash-card dash-card--full glass-card map-card">
+                    <div class="dash-card-top"><span class="material-icons">map</span><span
+                            class="dash-card-label">India — State-wise Climate Overview</span><span
+                            class="status-badge status-active">● Live (IMD)</span></div>
+                    <div class="leaflet-map-container" id="climateMap"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================== VIEW: DEFORESTATION ==================== -->
+        <div class="view" id="view-deforestation">
+            <div class="dash-header">
+                <a href="#" class="back-link" data-view="home"><span class="material-icons">arrow_back</span> Home</a>
+                <div class="dash-title-row"><span class="material-icons dash-title-icon">forest</span>
+                    <h1 class="dash-title">Deforestation Dashboard</h1>
+                </div>
+            </div>
+            <div class="dash-grid">
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">content_cut</span><span
+                            class="dash-card-label">Annual Forest Loss</span></div>
+                    <div class="dash-big-val">3.7M<span class="dash-unit">hectares</span></div>
+                    <p class="dash-card-sub">Primary forest lost yearly (Global Forest Watch, 2023)</p>
+                    <div class="trend-badge trend-down">↓ 9% vs 2022</div>
+                </div>
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">public</span><span
+                            class="dash-card-label">Forest Coverage</span></div>
+                    <div class="donut-wrap"><svg class="donut-chart" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.06)" stroke-width="12"
+                                fill="none" />
+                            <circle cx="60" cy="60" r="50" stroke="var(--accent-green)" stroke-width="12" fill="none"
+                                stroke-dasharray="314" stroke-dashoffset="217" stroke-linecap="round"
+                                transform="rotate(-90 60 60)" />
+                        </svg>
+                        <div class="donut-center"><span class="donut-num">31%</span><span class="donut-sub">of
+                                land</span></div>
+                    </div>
+                    <p class="dash-card-sub">Down from 32.5% in 1990 (FAO)</p>
+                </div>
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">local_fire_department</span><span
+                            class="dash-card-label">Causes & Monitoring</span></div>
+                    <div class="dash-stat-row">
+                        <div class="dash-stat-block"><span class="dash-stat-num"
+                                style="color:var(--accent-red)">30%</span><span class="dash-stat-lbl">Wildfire
+                                caused</span><span class="trend-badge trend-up">↑ 5%</span></div>
+                        <div class="dash-stat-block"><span class="dash-stat-num"
+                                style="color:var(--accent-primary)">50+</span><span class="dash-stat-lbl">Satellites
+                                live</span><span class="dash-card-sub">Landsat, Sentinel, MODIS</span></div>
+                    </div>
+                </div>
+                <!-- INDIA DEFORESTATION MAP -->
+                <div class="dash-card dash-card--full glass-card map-card">
+                    <div class="dash-card-top"><span class="material-icons">map</span><span
+                            class="dash-card-label">India — State-wise Forest Data</span><span
+                            class="status-badge status-active">● FSI 2023</span></div>
+                    <div class="leaflet-map-container" id="deforestMap"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================== VIEW: DISASTER ==================== -->
+        <div class="view" id="view-disaster">
+            <div class="dash-header">
+                <a href="#" class="back-link" data-view="home"><span class="material-icons">arrow_back</span> Home</a>
+                <div class="dash-title-row"><span class="material-icons dash-title-icon">warning</span>
+                    <h1 class="dash-title">Disaster Prediction Dashboard</h1>
+                </div>
+            </div>
+            <div class="dash-grid">
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">earthquake</span><span
+                            class="dash-card-label">Seismic Activity</span><span class="status-badge status-warning">⚠
+                            Active</span></div>
+                    <div class="dash-big-val">147</div>
+                    <p class="dash-card-sub">Earthquakes in last 30 days (USGS)</p>
+                    <div class="trend-badge trend-up">↑ 12% vs avg</div>
+                </div>
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">flood</span><span
+                            class="dash-card-label">Active Floods</span><span class="status-badge status-danger">🔴 89
+                            Active</span></div>
+                    <div class="dash-big-val">89</div>
+                    <p class="dash-card-sub">Flood events tracked globally (NOAA)</p>
+                </div>
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">storm</span><span
+                            class="dash-card-label">Tropical Storms</span></div>
+                    <div class="dash-big-val">12</div>
+                    <p class="dash-card-sub">Active cyclones & storms (NOAA NHC)</p>
+                    <div class="cap-grid cap-grid-2">
+                        <div class="cap-item"><span
+                                class="material-icons cap-mi">radar</span><strong>INSAT-3D</strong><span
+                                class="cap-sub">Monitoring</span></div>
+                        <div class="cap-item"><span class="material-icons cap-mi">language</span><strong>Global
+                                24/7</strong><span class="cap-sub">Every continent</span></div>
+                    </div>
+                </div>
+                <!-- INDIA DISASTER MAP -->
+                <div class="dash-card dash-card--full glass-card map-card">
+                    <div class="dash-card-top"><span class="material-icons">map</span><span
+                            class="dash-card-label">India — Disaster Risk by State</span><span
+                            class="status-badge status-danger">● Live Alerts</span></div>
+                    <div class="leaflet-map-container" id="disasterMap"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================== VIEW: SPACE DEBRIS ==================== -->
+        <div class="view" id="view-spacedebris">
+            <div class="dash-header">
+                <a href="#" class="back-link" data-view="home"><span class="material-icons">arrow_back</span> Home</a>
+                <div class="dash-title-row"><span class="material-icons dash-title-icon">satellite_alt</span>
+                    <h1 class="dash-title">Space Debris Dashboard</h1>
+                </div>
+            </div>
+            <div class="dash-grid">
+                <div class="dash-card dash-card--wide glass-card">
+                    <div class="dash-card-top"><span class="material-icons">track_changes</span><span
+                            class="dash-card-label">Tracked Objects in Orbit</span></div>
+                    <div class="debris-dash-row">
+                        <div class="debris-big">
+                            <div class="dash-big-val">36,860</div>
+                            <p class="dash-card-sub">Objects > 10 cm tracked (ESA Space Debris Office)</p>
+                        </div>
+                        <div class="debris-breakdown-mini">
+                            <div class="bd-row"><span class="bd-dot"
+                                    style="background:var(--accent-primary)"></span><span>Active
+                                    Satellites</span><strong>7,560</strong></div>
+                            <div class="bd-row"><span class="bd-dot"
+                                    style="background:var(--accent-amber)"></span><span>Defunct
+                                    Satellites</span><strong>3,800</strong></div>
+                            <div class="bd-row"><span class="bd-dot"
+                                    style="background:var(--accent-red)"></span><span>Rocket
+                                    Bodies</span><strong>2,350</strong></div>
+                            <div class="bd-row"><span class="bd-dot"
+                                    style="background:var(--accent-green)"></span><span>Frag.
+                                    Debris</span><strong>23,150+</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">speed</span><span
+                            class="dash-card-label">Orbital Speed</span></div>
+                    <div class="dash-big-val">28,000<span class="dash-unit">km/h</span></div>
+                    <p class="dash-card-sub">1 cm = hand grenade energy (ESA)</p>
+                </div>
+                <div class="dash-card glass-card">
+                    <div class="dash-card-top"><span class="material-icons">report_problem</span><span
+                            class="dash-card-label">Collision Risk</span><span class="status-badge status-warning">⚠
+                            Elevated</span></div>
+                    <div class="gauge-mini"><svg viewBox="0 0 120 70">
+                            <path d="M10,60 A50,50 0 0,1 110,60" stroke="rgba(255,255,255,0.06)" stroke-width="10"
+                                fill="none" stroke-linecap="round" />
+                            <path d="M10,60 A50,50 0 0,1 110,60" stroke="url(#gaugeGrad3)" stroke-width="10" fill="none"
+                                stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="42" />
+                            <defs>
+                                <linearGradient id="gaugeGrad3">
+                                    <stop offset="0%" stop-color="var(--accent-green)" />
+                                    <stop offset="50%" stop-color="var(--accent-amber)" />
+                                    <stop offset="100%" stop-color="var(--accent-red)" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="gauge-center"><span class="gauge-num">73</span><span class="gauge-sub">/ 100</span>
+                        </div>
+                    </div>
+                    <p class="dash-card-sub">Kessler Syndrome concern (NASA ODPO)</p>
+                </div>
+                <div class="dash-card dash-card--wide glass-card">
+                    <div class="dash-card-top"><span class="material-icons">build</span><span
+                            class="dash-card-label">Mitigation Strategies</span></div>
+                    <div class="cap-grid">
+                        <div class="cap-item"><span class="material-icons cap-mi">gps_fixed</span><strong>Debris
+                                Removal</strong><span class="cap-sub mit-status-badge testing">In Testing</span></div>
+                        <div class="cap-item"><span class="material-icons cap-mi">sync</span><strong>Deorbit
+                                Standards</strong><span class="cap-sub mit-status-badge active">Active</span></div>
+                        <div class="cap-item"><span
+                                class="material-icons cap-mi">settings_input_antenna</span><strong>Space
+                                Awareness</strong><span class="cap-sub mit-status-badge active">Operational</span></div>
+                        <div class="cap-item"><span class="material-icons cap-mi">bolt</span><strong>Laser
+                                Nudging</strong><span class="cap-sub mit-status-badge research">Research</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="prototype3.js"></script>
+</body>
+
+</html>

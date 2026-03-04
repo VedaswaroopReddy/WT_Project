@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nimbus — Climate Monitoring: Earth's vital signs tracked in real-time via satellite data.">
+    <title>Weather — Nimbus</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Saira:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="prototype1.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-bg">
+        <div class="parallax-bg-layer" id="bgLayer1" data-speed="0.15"
+            style="background-image: url('https://live-production.wcms.abc-cdn.net.au/1c1b19189df618469f87261ac15eace6?impolicy=wcms_crop_resize&cropH=1152&cropW=2048&xPos=0&yPos=383&width=862&height=485'); background-size: cover; background-position: center;">
+        </div>
+        <div class="parallax-bg-layer" id="bgLayer2" data-speed="0.35"></div>
+        <div class="parallax-bg-layer" id="bgLayer3" data-speed="0.55"></div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="prototype1.html" class="back-btn" aria-label="Back to home">
+        <span class="material-icons">arrow_back</span>
+    </a>
+
+    <!-- Main Content -->
+    <main class="main-content subpage">
+
+        <!-- Page Header -->
+        <section class="subpage-hero">
+            <span class="material-icons subpage-icon">cloud</span>
+            <h1 class="subpage-title">Earth's Vital Signs</h1>
+            <p class="subpage-subtitle">Real-time satellite data tracking the health of our planet's atmosphere, oceans,
+                and ice sheets.</p>
+        </section>
+
+        <!-- Temperature Anomaly -->
+        <section class="content-section parallax-section" data-speed="0.92">
+            <div class="section-label">
+                <span class="material-icons">thermostat</span>
+                <h2>Global Temperature Anomaly</h2>
+            </div>
+            <div class="detail-card surface-card">
+                <div class="detail-header">
+                    <div class="detail-value">+1.45°C</div>
+                    <span class="status-badge status-warning">⚠ Above Baseline</span>
+                </div>
+                <p class="detail-desc">Above pre-industrial average (1850–1900 baseline). This anomaly represents the
+                    dangerous warming trend threatening global ecosystems.</p>
+                <div class="chart-bars">
+                    <div class="chart-col">
+                        <div class="chart-fill" style="height: 30%"></div>
+                        <span class="chart-label">2018</span>
+                        <span class="chart-val">+0.91°C</span>
+                    </div>
+                    <div class="chart-col">
+                        <div class="chart-fill" style="height: 40%"></div>
+                        <span class="chart-label">2019</span>
+                        <span class="chart-val">+1.00°C</span>
+                    </div>
+                    <div class="chart-col">
+                        <div class="chart-fill" style="height: 45%"></div>
+                        <span class="chart-label">2020</span>
+                        <span class="chart-val">+1.05°C</span>
+                    </div>
+                    <div class="chart-col">
+                        <div class="chart-fill" style="height: 50%"></div>
+                        <span class="chart-label">2021</span>
+                        <span class="chart-val">+1.11°C</span>
+                    </div>
+                    <div class="chart-col">
+                        <div class="chart-fill" style="height: 60%"></div>
+                        <span class="chart-label">2022</span>
+                        <span class="chart-val">+1.20°C</span>
+                    </div>
+                    <div class="chart-col">
+                        <div class="chart-fill" style="height: 70%"></div>
+                        <span class="chart-label">2023</span>
+                        <span class="chart-val">+1.32°C</span>
+                    </div>
+                    <div class="chart-col highlight">
+                        <div class="chart-fill" style="height: 85%"></div>
+                        <span class="chart-label">2024</span>
+                        <span class="chart-val">+1.45°C</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CO2 & Sea Level Row -->
+        <section class="content-section parallax-section" data-speed="0.88">
+            <div class="card-row card-row--2">
+                <!-- CO2 -->
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">air</span>
+                        <span class="status-badge status-danger">🔴 Critical</span>
+                    </div>
+                    <div class="card-value">423 ppm</div>
+                    <p class="card-desc">Atmospheric CO₂ concentration (Mauna Loa Observatory) — highest in 800,000
+                        years.</p>
+                    <div class="progress-track">
+                        <div class="progress-labels">
+                            <span>Pre-industrial: 280 ppm</span>
+                            <span>Danger: 450 ppm</span>
+                        </div>
+                        <div class="progress-rail">
+                            <div class="progress-fill" style="width: 84%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sea Level -->
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">waves</span>
+                        <span class="status-badge status-warning">⚠ Rising</span>
+                    </div>
+                    <div class="card-value">+3.6 mm/yr</div>
+                    <p class="card-desc">Annual global mean sea level rise rate, accelerating each decade.</p>
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <span class="metric-val">+101mm</span>
+                            <span class="metric-lbl">Since 1993</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-val">+230mm</span>
+                            <span class="metric-lbl">Since 1880</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Arctic Sea Ice -->
+        <section class="content-section parallax-section" data-speed="0.85">
+            <div class="section-label">
+                <span class="material-icons">ac_unit</span>
+                <h2>Arctic Sea Ice</h2>
+            </div>
+            <div class="detail-card surface-card">
+                <div class="detail-header">
+                    <div class="detail-value">-13% / decade</div>
+                    <span class="status-badge status-danger">🔴 Declining</span>
+                </div>
+                <p class="detail-desc">Rate of September sea ice extent decline. The Arctic is warming nearly 4 times
+                    faster than the global average, with ice-free summers projected by 2050.</p>
+                <div class="ring-display">
+                    <div class="ring-chart-sub">
+                        <svg viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.08)" stroke-width="10"
+                                fill="none" />
+                            <circle cx="60" cy="60" r="50" stroke="var(--accent-primary)" stroke-width="10" fill="none"
+                                stroke-dasharray="314" stroke-dashoffset="119" stroke-linecap="round"
+                                transform="rotate(-90 60 60)" />
+                        </svg>
+                        <div class="ring-center">
+                            <span class="ring-num">62%</span>
+                            <span class="ring-sub">Remaining</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-bottom">
+                <p>© 2026 Nimbus. All rights reserved.</p>
+                <p class="footer-sub">Data sourced from NASA, ESA, NOAA.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="prototype1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nimbus — Disaster Prediction: AI-powered early warning systems enabled by satellite analysis.">
+    <title>Disaster Prediction — Nimbus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Saira:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="prototype1.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-bg">
+        <div class="parallax-bg-layer" id="bgLayer1" data-speed="0.15"
+            style="background-image: url('https://www.preventionweb.net/sites/default/files/styles/landscape_16_9/public/2023-11/rsz_credit_gregg_jaden_calgary_flood_destroyed_high_way_bridge_in_2013-min.jpg?itok=NAIfSZgG'); background-size: cover; background-position: center;">
+        </div>
+        <div class="parallax-bg-layer" id="bgLayer2" data-speed="0.35"></div>
+        <div class="parallax-bg-layer" id="bgLayer3" data-speed="0.55"></div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="prototype1.html" class="back-btn" aria-label="Back to home">
+        <span class="material-icons">arrow_back</span>
+    </a>
+
+    <!-- Main Content -->
+    <main class="main-content subpage">
+
+        <!-- Page Header -->
+        <section class="subpage-hero">
+            <span class="material-icons subpage-icon">warning</span>
+            <h1 class="subpage-title">Early Warning Systems</h1>
+            <p class="subpage-subtitle">AI-powered satellite analysis enabling earlier detection and response to natural
+                disasters worldwide.</p>
+        </section>
+
+        <!-- Live Alert Feed -->
+        <section class="content-section parallax-section" data-speed="0.92">
+            <div class="section-label">
+                <span class="material-icons" style="color: var(--accent-red) !important;">notifications_active</span>
+                <h2>Live Alert Feed</h2>
+                <span class="live-dot">● LIVE</span>
+            </div>
+            <div class="detail-card surface-card">
+                <div class="alert-list">
+                    <div class="alert-row alert-high">
+                        <span class="alert-icon-sub">🌋</span>
+                        <div class="alert-info-sub">
+                            <strong>Volcanic Activity Detected</strong>
+                            <span>Mount Etna, Italy — Thermal anomaly</span>
+                        </div>
+                        <span class="alert-time-sub">2 min ago</span>
+                        <span class="alert-badge high">HIGH</span>
+                    </div>
+                    <div class="alert-row alert-medium">
+                        <span class="alert-icon-sub">🌊</span>
+                        <div class="alert-info-sub">
+                            <strong>Flood Warning</strong>
+                            <span>Bangladesh — Rising water levels</span>
+                        </div>
+                        <span class="alert-time-sub">18 min ago</span>
+                        <span class="alert-badge medium">MEDIUM</span>
+                    </div>
+                    <div class="alert-row alert-high">
+                        <span class="alert-icon-sub">🌀</span>
+                        <div class="alert-info-sub">
+                            <strong>Cyclone Tracking</strong>
+                            <span>Bay of Bengal — Cat 3, 185 km/h</span>
+                        </div>
+                        <span class="alert-time-sub">45 min ago</span>
+                        <span class="alert-badge high">HIGH</span>
+                    </div>
+                    <div class="alert-row alert-low">
+                        <span class="alert-icon-sub">🔥</span>
+                        <div class="alert-info-sub">
+                            <strong>Wildfire Watch</strong>
+                            <span>California, USA — Contained</span>
+                        </div>
+                        <span class="alert-time-sub">1 hr ago</span>
+                        <span class="alert-badge low">LOW</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disaster Types -->
+        <section class="content-section parallax-section" data-speed="0.88">
+            <div class="section-label">
+                <span class="material-icons">category</span>
+                <h2>Disaster Tracking</h2>
+            </div>
+            <div class="card-row">
+                <!-- Earthquakes -->
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">earthquake</span>
+                        <span class="card-tag">Seismic</span>
+                    </div>
+                    <div class="card-value">147</div>
+                    <p class="card-desc">Significant earthquakes detected globally in the past 30 days.</p>
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <span class="metric-val">5.2+</span>
+                            <span class="metric-lbl">Avg Magnitude</span>
+                        </div>
+                    </div>
+                    <div class="risk-bar-sub">
+                        <span class="risk-label-sub">Risk Level</span>
+                        <div class="risk-track">
+                            <div class="risk-fill-sub" style="width: 65%"></div>
+                        </div>
+                        <span class="risk-text-sub">Moderate</span>
+                    </div>
+                </div>
+
+                <!-- Flooding -->
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">flood</span>
+                        <span class="card-tag">Flooding</span>
+                    </div>
+                    <div class="card-value">89</div>
+                    <p class="card-desc">Active flood warnings across 23 countries worldwide.</p>
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <span class="metric-val">23</span>
+                            <span class="metric-lbl">Countries Affected</span>
+                        </div>
+                    </div>
+                    <div class="risk-bar-sub">
+                        <span class="risk-label-sub">Risk Level</span>
+                        <div class="risk-track">
+                            <div class="risk-fill-sub risk-high" style="width: 78%"></div>
+                        </div>
+                        <span class="risk-text-sub">High</span>
+                    </div>
+                </div>
+
+                <!-- Hurricanes -->
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">cyclone</span>
+                        <span class="card-tag">Storms</span>
+                    </div>
+                    <div class="card-value">12</div>
+                    <p class="card-desc">Active tropical storms and cyclones currently being tracked.</p>
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <span class="metric-val">Cat 3</span>
+                            <span class="metric-lbl">Max Intensity</span>
+                        </div>
+                    </div>
+                    <div class="risk-bar-sub">
+                        <span class="risk-label-sub">Risk Level</span>
+                        <div class="risk-track">
+                            <div class="risk-fill-sub" style="width: 45%"></div>
+                        </div>
+                        <span class="risk-text-sub">Moderate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Satellite Capabilities -->
+        <section class="content-section parallax-section" data-speed="0.85">
+            <div class="section-label">
+                <span class="material-icons">satellite_alt</span>
+                <h2>Satellite Capabilities</h2>
+            </div>
+            <div class="card-row card-row--4">
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">🛰️</span>
+                    <h3>SAR Imaging</h3>
+                    <p class="card-desc">Synthetic Aperture Radar penetrates clouds to detect surface changes day or
+                        night.</p>
+                </div>
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">🤖</span>
+                    <h3>AI Analysis</h3>
+                    <p class="card-desc">Machine learning models process satellite imagery for rapid anomaly detection.
+                    </p>
+                </div>
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">⏱️</span>
+                    <h3>Early Warnings</h3>
+                    <p class="card-desc">Alerts generated minutes after detection, enabling faster evacuations.</p>
+                </div>
+                <div class="surface-card capability-card">
+                    <span class="cap-emoji">🌐</span>
+                    <h3>Global Coverage</h3>
+                    <p class="card-desc">Constellation of satellites providing 24/7 monitoring of every continent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-bottom">
+                <p>© 2026 Nimbus. All rights reserved.</p>
+                <p class="footer-sub">Data sourced from NASA, NOAA, ESA.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="prototype1.js"></script>
+</body>
+
+</html>

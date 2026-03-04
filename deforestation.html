@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nimbus — Deforestation Tracking: Satellite imagery reveals global forest loss in near real-time.">
+    <title>Deforestation — Nimbus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Saira:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="prototype1.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-bg">
+        <div class="parallax-bg-layer" id="bgLayer1" data-speed="0.15"
+            style="background-image: url('https://api.time.com/wp-content/uploads/2014/09/california-wildfire-1.jpg'); background-size: cover; background-position: center;">
+        </div>
+        <div class="parallax-bg-layer" id="bgLayer2" data-speed="0.35"></div>
+        <div class="parallax-bg-layer" id="bgLayer3" data-speed="0.55"></div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="prototype1.html" class="back-btn" aria-label="Back to home">
+        <span class="material-icons">arrow_back</span>
+    </a>
+
+    <!-- Main Content -->
+    <main class="main-content subpage">
+
+        <!-- Page Header -->
+        <section class="subpage-hero">
+            <span class="material-icons subpage-icon">forest</span>
+            <h1 class="subpage-title">Forests Under Threat</h1>
+            <p class="subpage-subtitle">Satellite imagery reveals the alarming rate of global forest loss, monitored in
+                near real-time.</p>
+        </section>
+
+        <!-- Key Stats -->
+        <section class="content-section parallax-section" data-speed="0.92">
+            <div class="section-label">
+                <span class="material-icons">bar_chart</span>
+                <h2>Key Statistics</h2>
+            </div>
+            <div class="card-row">
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">content_cut</span>
+                        <span class="card-tag">Annual Loss</span>
+                    </div>
+                    <div class="card-value">4.7M ha</div>
+                    <p class="card-desc">Primary forest lost every year — an area the size of Denmark.</p>
+                    <div class="trend-badge trend-down">↓ 10% vs 2020</div>
+                </div>
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">local_fire_department</span>
+                        <span class="card-tag">Wildfires</span>
+                    </div>
+                    <div class="card-value">30%</div>
+                    <p class="card-desc">Of all tree cover loss is caused by wildfires, rising each year.</p>
+                    <div class="trend-badge trend-up">↑ 5% increase</div>
+                </div>
+                <div class="surface-card">
+                    <div class="card-top">
+                        <span class="material-icons card-icon">public</span>
+                        <span class="card-tag">Global Cover</span>
+                    </div>
+                    <div class="card-value">31%</div>
+                    <p class="card-desc">Of Earth's land is still forested — down from 32.5% in 1990.</p>
+                    <div class="trend-badge trend-down">↓ Was 32.5% in 1990</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotspot Map -->
+        <section class="content-section parallax-section" data-speed="0.88">
+            <div class="section-label">
+                <span class="material-icons">map</span>
+                <h2>Global Forest Loss Hotspots</h2>
+            </div>
+            <div class="detail-card surface-card">
+                <div class="hotspot-grid">
+                    <div class="hotspot-item">
+                        <span class="hotspot-dot critical"></span>
+                        <div class="hotspot-info">
+                            <strong>Amazon Basin</strong>
+                            <span>1.5M ha/yr lost</span>
+                            <p>The lungs of the planet — suffering from agricultural expansion and illegal logging.</p>
+                        </div>
+                    </div>
+                    <div class="hotspot-item">
+                        <span class="hotspot-dot critical"></span>
+                        <div class="hotspot-info">
+                            <strong>Southeast Asia</strong>
+                            <span>1.2M ha/yr lost</span>
+                            <p>Palm oil and rubber plantations driving massive canopy loss in Indonesia and Malaysia.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hotspot-item">
+                        <span class="hotspot-dot warning"></span>
+                        <div class="hotspot-info">
+                            <strong>Congo Basin</strong>
+                            <span>0.5M ha/yr lost</span>
+                            <p>Africa's largest rainforest faces growing pressure from mining and subsistence farming.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hotspot-item">
+                        <span class="hotspot-dot warning"></span>
+                        <div class="hotspot-info">
+                            <strong>Boreal Forests</strong>
+                            <span>0.8M ha/yr lost</span>
+                            <p>Wildfire frequency increasing due to climate change across Canada and Siberia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="legend-row">
+                    <span class="legend-item"><span class="hotspot-dot critical small"></span> Critical Loss</span>
+                    <span class="legend-item"><span class="hotspot-dot warning small"></span> Moderate Loss</span>
+                    <span class="legend-item"><span class="hotspot-dot safe small"></span> Stable</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Satellite Monitoring -->
+        <section class="content-section parallax-section" data-speed="0.85">
+            <div class="section-label">
+                <span class="material-icons">satellite_alt</span>
+                <h2>Satellite Monitoring</h2>
+            </div>
+            <div class="detail-card surface-card">
+                <div class="detail-header">
+                    <div class="detail-value">50+ Satellites</div>
+                    <span class="status-badge status-active">Monitoring Live</span>
+                </div>
+                <p class="detail-desc">Landsat, Sentinel, and MODIS satellites provide continuous forest monitoring —
+                    detecting canopy changes as small as 30m resolution every 5 days.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-bottom">
+                <p>© 2026 Nimbus. All rights reserved.</p>
+                <p class="footer-sub">Data sourced from Global Forest Watch, NASA, ESA Copernicus.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="prototype1.js"></script>
+</body>
+
+</html>
